@@ -1,0 +1,618 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Degala Chenchupradeep | Quantum Machine Learning Researcher</title>
+    <meta name="description" content="Portfolio of Degala Chenchupradeep, Ph.D. Researcher in Quantum Machine Learning.">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --bg: #0f172a;
+            --card-bg: #1e293b;
+            --text: #e2e8f0;
+            --text-muted: #94a3b8;
+            --primary: #7c3aed;     /* purple */
+            --accent: #22d3ee;      /* cyan */
+            --border: #334155;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+        
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background-color: rgba(15, 23, 42, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            padding: 1rem 0;
+            border-bottom: 1px solid var(--border);
+        }
+        
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--accent);
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+        
+        .nav-links a {
+            color: var(--text);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        .nav-links a:hover {
+            color: var(--accent);
+        }
+        
+        .menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--text);
+            font-size: 1.8rem;
+            cursor: pointer;
+        }
+        
+        /* Hero Section */
+        #hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            text-align: center;
+            padding-top: 80px;
+        }
+        
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .hero-photo {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            margin: 0 auto 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+            color: white;
+            font-weight: 700;
+        }
+        
+        h1 {
+            font-size: 3.5rem;
+            margin-bottom: 0.5rem;
+            background: linear-gradient(to right, var(--primary), var(--accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .subtitle {
+            font-size: 1.8rem;
+            color: var(--accent);
+            margin-bottom: 1rem;
+        }
+        
+        .tagline {
+            font-size: 1.2rem;
+            color: var(--text-muted);
+            margin-bottom: 1.5rem;
+        }
+        
+        .summary {
+            max-width: 700px;
+            margin: 0 auto 2rem;
+            font-size: 1.1rem;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 0.8rem 1.8rem;
+            margin: 0.5rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+        
+        .btn-primary {
+            background: var(--primary);
+            color: white;
+        }
+        
+        .btn-primary:hover {
+            background: var(--accent);
+            transform: translateY(-3px);
+        }
+        
+        .btn-outline {
+            border: 2px solid var(--accent);
+            color: var(--accent);
+        }
+        
+        .btn-outline:hover {
+            background: var(--accent);
+            color: var(--bg);
+        }
+        
+        .social-links {
+            margin-top: 2rem;
+        }
+        
+        .social-links a {
+            color: var(--text-muted);
+            font-size: 1.8rem;
+            margin: 0 1rem;
+            transition: color 0.3s;
+        }
+        
+        .social-links a:hover {
+            color: var(--accent);
+        }
+        
+        /* General Sections */
+        section {
+            padding: 6rem 0;
+        }
+        
+        h2 {
+            font-size: 2.8rem;
+            text-align: center;
+            margin-bottom: 4rem;
+            position: relative;
+        }
+        
+        h2::after {
+            content: '';
+            width: 80px;
+            height: 4px;
+            background: var(--accent);
+            display: block;
+            margin: 1rem auto 0;
+            border-radius: 2px;
+        }
+        
+        /* Skills */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+        }
+        
+        .skill-tag {
+            background: var(--card-bg);
+            padding: 0.8rem 1.2rem;
+            border-radius: 50px;
+            text-align: center;
+            border: 1px solid var(--border);
+            transition: all 0.3s;
+        }
+        
+        .skill-tag:hover {
+            background: var(--primary);
+            border-color: var(--accent);
+            transform: translateY(-5px);
+        }
+        
+        /* Cards Grid */
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+        
+        .card {
+            background: var(--card-bg);
+            padding: 2rem;
+            border-radius: 1rem;
+            border: 1px solid var(--border);
+            transition: transform 0.3s;
+        }
+        
+        .card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+            color: var(--accent);
+        }
+        
+        .card .date {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+        
+        /* Contact */
+        .contact-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 3rem;
+            margin-bottom: 4rem;
+        }
+        
+        .contact-details ul {
+            list-style: none;
+        }
+        
+        .contact-details li {
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+        }
+        
+        .contact-details i {
+            width: 30px;
+            color: var(--accent);
+        }
+        
+        form {
+            display: grid;
+            gap: 1.5rem;
+        }
+        
+        input, textarea {
+            width: 100%;
+            padding: 1rem;
+            border-radius: 0.5rem;
+            border: 1px solid var(--border);
+            background: var(--card-bg);
+            color: var(--text);
+            font-family: inherit;
+        }
+        
+        textarea {
+            min-height: 150px;
+            resize: vertical;
+        }
+        
+        /* Footer */
+        footer {
+            background: #020617;
+            padding: 3rem 0;
+            text-align: center;
+            border-top: 1px solid var(--border);
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .menu-toggle {
+                display: block;
+            }
+            
+            .nav-links {
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: var(--bg);
+                flex-direction: column;
+                padding: 1rem 0;
+                display: none;
+            }
+            
+            .nav-links.open {
+                display: flex;
+            }
+            
+            h1 {
+                font-size: 2.8rem;
+            }
+            
+            .hero-photo {
+                width: 150px;
+                height: 150px;
+                font-size: 3rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="container nav-container">
+            <div class="logo">DC</div>
+            <button class="menu-toggle" aria-label="Toggle menu">☰</button>
+            <ul class="nav-links">
+                <li><a href="#hero">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#education">Education</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#certifications">Certifications</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <section id="hero">
+        <div class="container hero-content">
+            <div class="hero-photo">DC</div>
+            <h1>Degala Chenchupradeep</h1>
+            <p class="subtitle">Ph.D. Researcher in Quantum Machine Learning</p>
+            <p class="tagline">AI • Deep Learning • Quantum Computing • Quantum-Inspired Models</p>
+            <p class="summary">
+                Ph.D. Researcher in Quantum Machine Learning with expertise in AI, Deep Learning, Quantum Computing,
+                and Machine Learning. Proficient in Python, Qiskit, PyTorch, TensorFlow, QAOA, and variational quantum
+                eigensolvers. Specializes in Quantum-Inspired AI models for computational biology, healthcare, and
+                autonomous systems. Ph.D. Scholar, SRM University AP (Research: Quantum-Inspired Model Generation in
+                Quantum Machine Learning).
+            </p>
+            <div>
+                <a href="#" class="btn btn-primary">Download CV</a>
+                <a href="#contact" class="btn btn-outline">Contact Me</a>
+            </div>
+            <div class="social-links">
+                <a href="https://www.linkedin.com/in/degala-chenchupradeep-811916176" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                <a href="https://github.com/pradeepdegalaroyal" target="_blank" aria-label="GitHub Primary"><i class="fab fa-github"></i></a>
+                <a href="https://github.com/degalachenchupradeep" target="_blank" aria-label="GitHub Secondary"><i class="fab fa-github"></i></a>
+                <a href="mailto:Pradeepdegala143@gmail.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About -->
+    <section id="about">
+        <div class="container">
+            <h2>About Me</h2>
+            <p class="summary" style="max-width: 900px; margin: 0 auto; text-align: center; font-size: 1.1rem;">
+                Ph.D. Researcher in Quantum Machine Learning with expertise in AI, Deep Learning, Quantum Computing,
+                and Machine Learning. Proficient in Python, Qiskit, PyTorch, TensorFlow, QAOA, and variational quantum
+                eigensolvers. Specializes in Quantum-Inspired AI models for computational biology, healthcare, and
+                autonomous systems. Ph.D. Scholar, SRM University AP (Research: Quantum-Inspired Model Generation in
+                Quantum Machine Learning).
+            </p>
+        </div>
+    </section>
+
+    <!-- Skills -->
+    <section id="skills">
+        <div class="container">
+            <h2>Core Skills</h2>
+            <div class="skills-grid">
+                <div class="skill-tag">Quantum Computing</div>
+                <div class="skill-tag">Machine Learning</div>
+                <div class="skill-tag">Qiskit</div>
+                <div class="skill-tag">Cirq</div>
+                <div class="skill-tag">Pennylane</div>
+                <div class="skill-tag">PyTorch</div>
+                <div class="skill-tag">TensorFlow</div>
+                <div class="skill-tag">Python</div>
+                <div class="skill-tag">QAOA</div>
+                <div class="skill-tag">Variational Quantum Eigensolvers</div>
+                <div class="skill-tag">NetworkX</div>
+                <div class="skill-tag">Supervised/Unsupervised Learning</div>
+                <div class="skill-tag">Reinforcement Learning</div>
+                <div class="skill-tag">NLP</div>
+                <div class="skill-tag">Big Data (Hadoop, Spark)</div>
+                <div class="skill-tag">Django</div>
+                <div class="skill-tag">Flask</div>
+                <div class="skill-tag">Pandas</div>
+                <div class="skill-tag">Scikit-learn</div>
+                <div class="skill-tag">Data Visualization</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Education -->
+    <section id="education">
+        <div class="container">
+            <h2>Education</h2>
+            <div class="cards-grid">
+                <div class="card">
+                    <h3>Ph.D. in Computer Science and Engineering (Pursuing)</h3>
+                    <p class="date">SRM University AP, India</p>
+                    <p>Research: Quantum-Inspired Model Generation in Quantum Machine Learning.</p>
+                </div>
+                <div class="card">
+                    <h3>M.Tech in Data Science (Gold Medalist)</h3>
+                    <p class="date">Jawaharlal Nehru Technological University-Gurajada, 2022–2024</p>
+                    <p>Thesis: Enhancing Long-lived Bug Prediction in FLOSS (BERT, TF-IDF, GCN, RNN). Guide: Dr. B. Tirimula Rao.</p>
+                </div>
+                <div class="card">
+                    <h3>B.Tech in Mechanical Engineering</h3>
+                    <p class="date">Siddharth Institute of Engineering & Technology, 2019–2022</p>
+                    <p>Project: Three Axis Pneumatic Modern Trailer — Designed pneumatic system for enhanced functionality.</p>
+                </div>
+                <div class="card">
+                    <h3>Diploma in Mechanical Engineering</h3>
+                    <p class="date">Government Polytechnic College, 2016–2019</p>
+                    <p>Industrial Training: Manufacturing Processes.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience -->
+    <section id="experience">
+        <div class="container">
+            <h2>Professional Experience</h2>
+            <div class="cards-grid">
+                <div class="card">
+                    <h3>Assistant Professor, Computer Science and Engineering</h3>
+                    <p class="date">Raghu Engineering College, Visakhapatnam • Aug–Nov 2024</p>
+                    <p>Taught AI/ML courses; mentored quantum/data science projects. Developed curriculum for 50+ students.</p>
+                </div>
+                <div class="card">
+                    <h3>Backend Web Development Intern</h3>
+                    <p class="date">PMN Company/Chegg Expert • Jun–Aug 2023</p>
+                    <p>Built Django/Flask services for edtech, boosting efficiency 20%. Integrated APIs for user auth and data processing.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects -->
+    <section id="projects">
+        <div class="container">
+            <h2>Projects</h2>
+            <div class="cards-grid">
+                <div class="card">
+                    <h3>Quantum-Inspired RL for Max-Cut Optimization (QML-RL-MaxCut)</h3>
+                    <p class="date">Ongoing, 2025</p>
+                    <p>Built QAOA-based RL framework in Qiskit/Python; hybrid models cut optimization time 25%.</p>
+                    <p><strong>Tech:</strong> Qiskit, Python, QAOA</p>
+                    <a href="#" class="btn btn-outline" style="margin-top: 1rem; display: inline-block;">View on GitHub</a>
+                </div>
+                <div class="card">
+                    <h3>Quantum Walk Influence Maximization in Social Networks</h3>
+                    <p class="date">Ongoing, 2025</p>
+                    <p>Qiskit/NetworkX algorithm for node detection; outperformed classical by 25% on real datasets.</p>
+                    <p><strong>Tech:</strong> Qiskit, NetworkX</p>
+                    <a href="#" class="btn btn-outline" style="margin-top: 1rem; display: inline-block;">View on GitHub</a>
+                </div>
+                <div class="card">
+                    <h3>Long-lived Bug Prediction in FLOSS</h3>
+                    <p class="date">JNTU-Gurajada • Jan–Aug 2024</p>
+                    <p>Compared BERT/TF-IDF/GCN/RNN; BERT+MLP achieved top accuracy for bug severity.</p>
+                    <p><strong>Tech:</strong> BERT, GCN, RNN</p>
+                    <a href="#" class="btn btn-outline" style="margin-top: 1rem; display: inline-block;">View on GitHub</a>
+                </div>
+                <div class="card">
+                    <h3>Quantum-Inspired Models for ML/AI (PhD Projects)</h3>
+                    <p class="date">Ongoing</p>
+                    <p>Hands-on experience implementing QINNs/QIRL using Qiskit, Cirq, and Pennylane for noise-resilient healthcare apps.</p>
+                    <p><strong>Tech:</strong> Qiskit, Cirq, Pennylane</p>
+                    <a href="#" class="btn btn-outline" style="margin-top: 1rem; display: inline-block;">View on GitHub</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Certifications & Conferences -->
+    <section id="certifications">
+        <div class="container">
+            <h2>Certifications & Conferences</h2>
+            <div class="cards-grid">
+                <div class="card">
+                    <h3>Certifications</h3>
+                    <ul style="margin-top: 1rem; list-style: disc; padding-left: 1.5rem;">
+                        <li>Quantum Algorithms & Cryptography (NPTEL Star, IIT Madras, 2025)</li>
+                        <li>Deep Learning (NPTEL, IIT Kharagpur, 2023)</li>
+                        <li>Python for Data Science (NPTEL, IIT Madras, 2023)</li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <h3>Conferences</h3>
+                    <ul style="margin-top: 1rem; list-style: disc; padding-left: 1.5rem;">
+                        <li>Attended Quantum Conclave — IISc Bangalore, Feb 2025<br>
+                            Participated in discussions on quantum technology and cutting-edge research advancements.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact">
+        <div class="container">
+            <h2>Contact</h2>
+            <div class="contact-info">
+                <div class="contact-details">
+                    <ul>
+                        <li><i class="fas fa-phone"></i> <a href="tel:+919347539941">(+91) 9347539941</a></li>
+                        <li><i class="fas fa-envelope"></i> <a href="mailto:Pradeepdegala143@gmail.com">Pradeepdegala143@gmail.com</a></li>
+                        <li><i class="fas fa-envelope"></i> <a href="mailto:chenchupradeepd@srmap.edu.in">chenchupradeepd@srmap.edu.in</a></li>
+                        <li><i class="fas fa-map-marker-alt"></i> 8-37/1, APTF Colony, Venkatagiri, Andhra Pradesh, India, PIN: 524132</li>
+                        <li><i class="fab fa-linkedin"></i> <a href="https://www.linkedin.com/in/degala-chenchupradeep-811916176" target="_blank">linkedin.com/in/degala-chenchupradeep-811916176</a></li>
+                        <li><i class="fab fa-github"></i> <a href="https://github.com/pradeepdegalaroyal" target="_blank">github.com/pradeepdegalaroyal</a></li>
+                        <li><i class="fab fa-github"></i> <a href="https://github.com/degalachenchupradeep" target="_blank">github.com/degalachenchupradeep</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <form id="contact-form">
+                        <input type="text" name="name" placeholder="Your Name" required>
+                        <input type="email" name="email" placeholder="Your Email" required>
+                        <textarea name="message" placeholder="Your Message" required></textarea>
+                        <button type="submit" class="btn btn-primary">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 Degala Chenchupradeep. All rights reserved.</p>
+            <p style="margin-top: 1rem; color: var(--text-muted);">References available upon request.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        document.querySelector('.menu-toggle').addEventListener('click', () => {
+            document.querySelector('.nav-links').classList.toggle('open');
+        });
+
+        // Smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth' });
+                }
+                // Close mobile menu after click
+                document.querySelector('.nav-links').classList.remove('open');
+            });
+        });
+
+        // Contact form (demo - logs to console)
+        document.getElementById('contact-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Thank you! Your message has been sent. (This is a demo — no email is actually sent.)');
+            console.log('Form data:', {
+                name: this.name.value,
+                email: this.email.value,
+                message: this.message.value
+            });
+            this.reset();
+        });
+    </script>
+</body>
+</html>
