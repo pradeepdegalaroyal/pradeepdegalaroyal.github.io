@@ -3,8 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Degala Chenchupradeep | Quantum Machine Learning Researcher</title>
-    <meta name="description" content="Portfolio of Degala Chenchupradeep, Ph.D. Researcher in Quantum Machine Learning.">
+    <title>Degala Chenchupradeep | Quantum Machine Learning Researcher | PhD Scholar, SRM University AP</title>
+    <meta name="description" content="Degala Chenchupradeep, PhD scholar in quantum machine learning at SRM University AP. Open-source simulation research on QAOA, VQE, error mitigation, tensor networks and quantum networks. CVs and contact.">
+    <link rel="canonical" href="https://pradeepdegalaroyal.github.io/">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Degala Chenchupradeep | Quantum Machine Learning Researcher">
+    <meta property="og:description" content="PhD scholar in quantum machine learning at SRM University AP. Reproducible, open-source simulation research projects, CVs and contact.">
+    <meta property="og:url" content="https://pradeepdegalaroyal.github.io/">
+    <meta property="og:image" content="https://pradeepdegalaroyal.github.io/Degala_Chenchupradeep_Picture.jpeg">
+    <meta name="twitter:card" content="summary">
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
     
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
@@ -106,6 +114,7 @@
         }
         
         .hero-photo {
+            object-fit: cover;
             width: 200px;
             height: 200px;
             border-radius: 50%;
@@ -237,7 +246,7 @@
         /* Cards Grid */
         .cards-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(min(350px, 100%), 1fr));
             gap: 2rem;
         }
         
@@ -268,7 +277,7 @@
         /* Contact */
         .contact-info {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr));
             gap: 3rem;
             margin-bottom: 4rem;
         }
@@ -308,6 +317,17 @@
             resize: vertical;
         }
         
+        /* Added sections */
+        .interests { max-width: 900px; margin: 0 auto; text-align: center; font-size: 1.1rem; }
+        .tags { display: flex; flex-wrap: wrap; gap: 0.5rem; margin: 1rem 0; list-style: none; }
+        .tags li { font-size: 0.8rem; color: var(--accent); border: 1px solid var(--border); border-radius: 50px; padding: 0.15rem 0.7rem; }
+        .card .btn { margin: 1rem 0 0; }
+        .cv-buttons { text-align: center; }
+        .collab { text-align: center; max-width: 800px; margin: 0 auto; }
+        .collab p { margin-bottom: 1.5rem; font-size: 1.1rem; }
+        .collab a:not(.btn) { color: var(--accent); }
+        a:focus-visible, button:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; }
+
         /* Footer */
         footer {
             background: #020617;
@@ -337,6 +357,9 @@
                 display: flex;
             }
             
+            h2 { font-size: 2rem; margin-bottom: 2.5rem; }
+            .container { padding: 0 1rem; }
+            .card { padding: 1.25rem; }
             h1 {
                 font-size: 2.8rem;
             }
@@ -358,11 +381,14 @@
             <ul class="nav-links">
                 <li><a href="#hero">Home</a></li>
                 <li><a href="#about">About</a></li>
+                <li><a href="#interests">Research</a></li>
                 <li><a href="#skills">Skills</a></li>
                 <li><a href="#education">Education</a></li>
                 <li><a href="#experience">Experience</a></li>
+                <li><a href="#research-projects">Research projects</a></li>
                 <li><a href="#projects">Projects</a></li>
                 <li><a href="#certifications">Certifications</a></li>
+                <li><a href="#cv">CV</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
         </div>
@@ -371,25 +397,24 @@
     <!-- Hero -->
     <section id="hero">
         <div class="container hero-content">
-            <img src="Degala_Chenchupradeep_Picture.jpeg" alt="Degala Chenchupradeep" class="hero-photo">
+            <img src="Degala_Chenchupradeep_Picture.jpeg" alt="Portrait photo of Degala Chenchupradeep" class="hero-photo">
             <h1>Degala Chenchupradeep</h1>
             <p class="subtitle">Ph.D. Researcher in Quantum Machine Learning</p>
             <p class="tagline">AI • Deep Learning • Quantum Computing • Quantum-Inspired Models</p>
             <p class="summary">
-                Ph.D. Researcher in Quantum Machine Learning with expertise in AI, Deep Learning, Quantum Computing,
-                and Machine Learning. Proficient in Python, Qiskit, PyTorch, TensorFlow, QAOA, and variational quantum
-                eigensolvers. Specializes in Quantum-Inspired AI models for computational biology, healthcare, and
-                autonomous systems. Ph.D. Scholar, SRM University AP (Research: Quantum-Inspired Model Generation in
-                Quantum Machine Learning).
+                PhD scholar in quantum machine learning at SRM University AP. I develop quantum-inspired and gate-based models for
+                many-body physics, error mitigation and QAOA optimisation, with applied work in quantum communication (QKD),
+                underwater acoustic networks and quantum-like fuzzy decision making. I publish reproducible, simulation-based
+                research projects as open source under the MIT licence. Tools: Python, Qiskit, PennyLane, PyTorch.
             </p>
             <div>
-                <a href="Degala_Chenchupradeep_cv.pdf" class="btn btn-primary" download>Download CV</a>
+                <a href="#cv" class="btn btn-primary">CV (one-page and extended)</a>
                 <a href="#contact" class="btn btn-outline">Contact Me</a>
             </div>
             <div class="social-links">
-                <a href="https://www.linkedin.com/in/degala-chenchupradeep-811916176" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
-                <a href="https://github.com/pradeepdegalaroyal" target="_blank" aria-label="GitHub Primary"><i class="fab fa-github"></i></a>
-                <a href="https://github.com/degalachenchupradeep" target="_blank" aria-label="GitHub Secondary"><i class="fab fa-github"></i></a>
+                <a href="https://www.linkedin.com/in/degala-chenchupradeep-811916176" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                <a href="https://github.com/pradeepdegalaroyal" target="_blank" rel="noopener" aria-label="GitHub (pradeepdegalaroyal)"><i class="fab fa-github"></i></a>
+                <a href="https://github.com/degalachenchupradeep" target="_blank" rel="noopener" aria-label="GitHub (degalachenchupradeep)"><i class="fab fa-github"></i></a>
                 <a href="mailto:Pradeepdegala143@gmail.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
             </div>
         </div>
@@ -400,12 +425,33 @@
         <div class="container">
             <h2>About Me</h2>
             <p class="summary" style="max-width: 900px; margin: 0 auto; text-align: center; font-size: 1.1rem;">
-                Ph.D. Researcher in Quantum Machine Learning with expertise in AI, Deep Learning, Quantum Computing,
-                and Machine Learning. Proficient in Python, Qiskit, PyTorch, TensorFlow, QAOA, and variational quantum
-                eigensolvers. Specializes in Quantum-Inspired AI models for computational biology, healthcare, and
-                autonomous systems. Ph.D. Scholar, SRM University AP (Research: Quantum-Inspired Model Generation in
-                Quantum Machine Learning).
+                PhD scholar in quantum machine learning at SRM University AP. I develop quantum-inspired and gate-based models for
+                many-body physics, error mitigation and QAOA optimisation, with applied work in quantum communication (QKD),
+                underwater acoustic networks and quantum-like fuzzy decision making. I publish reproducible, simulation-based
+                research projects as open source under the MIT licence. Tools: Python, Qiskit, PennyLane, PyTorch.
             </p>
+        </div>
+    </section>
+
+    <!-- Research interests -->
+    <section id="interests">
+        <div class="container">
+            <h2>Research Interests</h2>
+            <p class="interests">
+                Quantum machine learning; QAOA and VQE; quantum error mitigation; tensor networks; quantum communication
+                and QKD; underwater communication; quantum photonics; and quantum information theory.
+            </p>
+        </div>
+    </section>
+
+    <!-- Research projects (data-driven: add an entry to projects.json) -->
+    <section id="research-projects">
+        <div class="container">
+            <h2>Research Projects</h2>
+            <p class="interests" style="margin-bottom: 3rem;">Open-source repositories (MIT licence). Results come from simulation unless a repository states otherwise.</p>
+            <div class="cards-grid" id="research-grid">
+                <noscript><p>Enable JavaScript to see the project list, or visit <a href="https://github.com/pradeepdegalaroyal">github.com/pradeepdegalaroyal</a>.</p></noscript>
+            </div>
         </div>
     </section>
 
@@ -496,28 +542,24 @@
                     <p class="date">Ongoing, 2025</p>
                     <p>Built QAOA-based RL framework in Qiskit/Python; hybrid models cut optimization time 25%.</p>
                     <p><strong>Tech:</strong> Qiskit, Python, QAOA</p>
-                    <a href="#" class="btn btn-outline" style="margin-top: 1rem; display: inline-block;">View on GitHub</a>
                 </div>
                 <div class="card">
                     <h3>Quantum Walk Influence Maximization in Social Networks</h3>
                     <p class="date">Ongoing, 2025</p>
                     <p>Qiskit/NetworkX algorithm for node detection; outperformed classical by 25% on real datasets.</p>
                     <p><strong>Tech:</strong> Qiskit, NetworkX</p>
-                    <a href="#" class="btn btn-outline" style="margin-top: 1rem; display: inline-block;">View on GitHub</a>
                 </div>
                 <div class="card">
                     <h3>Long-lived Bug Prediction in FLOSS</h3>
                     <p class="date">JNTU-Gurajada • Jan–Aug 2024</p>
                     <p>Compared BERT/TF-IDF/GCN/RNN; BERT+MLP achieved top accuracy for bug severity.</p>
                     <p><strong>Tech:</strong> BERT, GCN, RNN</p>
-                    <a href="#" class="btn btn-outline" style="margin-top: 1rem; display: inline-block;">View on GitHub</a>
                 </div>
                 <div class="card">
                     <h3>Quantum-Inspired Models for ML/AI (PhD Projects)</h3>
                     <p class="date">Ongoing</p>
                     <p>Hands-on experience implementing QINNs/QIRL using Qiskit, Cirq, and Pennylane for noise-resilient healthcare apps.</p>
                     <p><strong>Tech:</strong> Qiskit, Cirq, Pennylane</p>
-                    <a href="#" class="btn btn-outline" style="margin-top: 1rem; display: inline-block;">View on GitHub</a>
                 </div>
             </div>
         </div>
@@ -547,30 +589,28 @@
         </div>
     </section>
 
-    <!-- Contact -->
+    <!-- CV -->
+    <section id="cv">
+        <div class="container cv-buttons">
+            <h2>CV</h2>
+            <a href="assets/Degala_Chenchupradeep_CV_onepage.pdf" class="btn btn-primary" download><i class="fas fa-file-pdf" aria-hidden="true"></i> One-page CV (PDF)</a>
+            <a href="assets/Degala_Chenchupradeep_CV_extended.pdf" class="btn btn-outline" download><i class="fas fa-file-pdf" aria-hidden="true"></i> Extended CV (PDF)</a>
+        </div>
+    </section>
+
+    <!-- Collaboration and contact (keep last) -->
     <section id="contact">
-        <div class="container">
-            <h2>Contact</h2>
-            <div class="contact-info">
-                <div class="contact-details">
-                    <ul>
-                        <li><i class="fas fa-phone"></i> <a href="tel:+919347539941">(+91) 9347539941</a></li>
-                        <li><i class="fas fa-envelope"></i> <a href="mailto:Pradeepdegala143@gmail.com">Pradeepdegala143@gmail.com</a></li>
-                        <li><i class="fas fa-envelope"></i> <a href="mailto:chenchupradeepd@srmap.edu.in">chenchupradeepd@srmap.edu.in</a></li>
-                        <li><i class="fas fa-map-marker-alt"></i> 8-37/1, APTF Colony, Venkatagiri, Andhra Pradesh, India, PIN: 524132</li>
-                        <li><i class="fab fa-linkedin"></i> <a href="https://www.linkedin.com/in/degala-chenchupradeep-811916176" target="_blank">linkedin.com/in/degala-chenchupradeep-811916176</a></li>
-                        <li><i class="fab fa-github"></i> <a href="https://github.com/pradeepdegalaroyal" target="_blank">github.com/pradeepdegalaroyal</a></li>
-                        <li><i class="fab fa-github"></i> <a href="https://github.com/degalachenchupradeep" target="_blank">github.com/degalachenchupradeep</a></li>
-                    </ul>
-                </div>
-                <div>
-                    <form id="contact-form">
-                        <input type="text" name="name" placeholder="Your Name" required>
-                        <input type="email" name="email" placeholder="Your Email" required>
-                        <textarea name="message" placeholder="Your Message" required></textarea>
-                        <button type="submit" class="btn btn-primary">Send Message</button>
-                    </form>
-                </div>
+        <div class="container collab">
+            <h2>Collaboration and Contact</h2>
+            <p>Open to collaboration, postdoc and research-scientist conversations.</p>
+            <div class="contact-details">
+                <ul style="display: inline-block; text-align: left;">
+                    <li><i class="fas fa-envelope" aria-hidden="true"></i> <a href="mailto:pradeepdegala143@gmail.com">pradeepdegala143@gmail.com</a></li>
+                    <li><i class="fas fa-envelope" aria-hidden="true"></i> <a href="mailto:chenchupradeepd@srmap.edu.in">chenchupradeepd@srmap.edu.in</a></li>
+                    <li><i class="fas fa-phone" aria-hidden="true"></i> <a href="tel:+919347539941">(+91) 9347539941</a></li>
+                    <li><i class="fab fa-github" aria-hidden="true"></i> <a href="https://github.com/pradeepdegalaroyal" target="_blank" rel="noopener">github.com/pradeepdegalaroyal</a></li>
+                    <li><i class="fab fa-linkedin" aria-hidden="true"></i> <a href="https://www.linkedin.com/in/degala-chenchupradeep-811916176" target="_blank" rel="noopener">linkedin.com/in/degala-chenchupradeep-811916176</a></li>
+                </ul>
             </div>
         </div>
     </section>
@@ -602,17 +642,24 @@
             });
         });
 
-        // Contact form (demo - logs to console)
-        document.getElementById('contact-form').addEventListener('submit', function(e) {
-            e.preventDefault();
-            alert('Thank you! Your message has been sent. (This is a demo — no email is actually sent.)');
-            console.log('Form data:', {
-                name: this.name.value,
-                email: this.email.value,
-                message: this.message.value
-            });
-            this.reset();
-        });
+        // Render research projects from projects.json
+        (function () {
+            const grid = document.getElementById('research-grid');
+            fetch('projects.json').then(r => r.json()).then(list => {
+                grid.textContent = '';
+                list.forEach(p => {
+                    const card = document.createElement('div'); card.className = 'card';
+                    const h = document.createElement('h3'); h.textContent = p.title;
+                    const d = document.createElement('p'); d.textContent = p.result;
+                    const ul = document.createElement('ul'); ul.className = 'tags';
+                    p.tags.forEach(t => { const li = document.createElement('li'); li.textContent = t; ul.appendChild(li); });
+                    const a = document.createElement('a'); a.className = 'btn btn-outline';
+                    a.href = 'https://github.com/pradeepdegalaroyal/' + p.repo; a.target = '_blank'; a.rel = 'noopener';
+                    a.textContent = 'View on GitHub'; a.setAttribute('aria-label', 'View ' + p.repo + ' on GitHub');
+                    card.append(h, d, ul, a); grid.appendChild(card);
+                });
+            }).catch(() => { grid.textContent = 'Project list could not be loaded. See github.com/pradeepdegalaroyal.'; });
+        })();
     </script>
 </body>
 </html>
