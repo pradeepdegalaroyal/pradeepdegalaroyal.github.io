@@ -672,7 +672,8 @@
             more.addEventListener('click', function () { shown = all.length; render(); });
             q.addEventListener('input', render);
 
-            fetch('projects.json').then(function (r) { return r.json(); }).then(function (list) {
+            // 'no-cache' makes the browser check for a newer list on every visit instead of reusing a copy for 10 minutes
+            fetch('projects.json', { cache: 'no-cache' }).then(function (r) { return r.json(); }).then(function (list) {
                 all = list.map(function (p) { p.area = p.area || 'Other'; return p; });
                 document.getElementById('stat-count').textContent = String(all.length);
                 buildChips(); render();
