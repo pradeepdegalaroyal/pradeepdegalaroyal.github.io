@@ -101,6 +101,33 @@
         .leaf.turning .face::before { content: ''; position: absolute; inset: 0; z-index: 2; pointer-events: none; animation: shade .95s ease-in-out; }
         @keyframes shade { 0% { background: rgba(0,0,0,0); } 50% { background: rgba(0,0,0,.22); } 100% { background: rgba(0,0,0,0); } }
         .blank { background: var(--paper); width: 100%; height: 100%; }
+        /* a resting leaf shows exactly one side, whatever the browser does with backface-visibility */
+        .leaf:not(.flipped):not(.turning) .face.back { visibility: hidden; }
+        .leaf.flipped:not(.turning) .face.front { visibility: hidden; }
+
+        .desk:fullscreen { justify-content: center; padding: 1rem 0; background: var(--desk); }
+        .desk:fullscreen .hint { display: none; }
+
+        .read-btn { display: inline-flex; align-items: center; gap: .5rem; padding: .5rem 1rem; border-radius: 999px; border: 1px solid var(--accent); background: var(--accent); color: var(--accent-ink); font: 600 .9rem var(--sans); cursor: pointer; transition: transform .2s; }
+        .read-btn:hover { transform: translateY(-2px); }
+
+        /* reading view: one page, large, scrollable and zoomable */
+        .reader { position: fixed; inset: 0; z-index: 4000; background: #080d1a; display: none; flex-direction: column; }
+        .reader.open { display: flex; }
+        .r-bar { display: flex; align-items: center; justify-content: space-between; gap: .6rem; padding: .6rem .9rem; color: #e8edf7; flex-wrap: wrap; }
+        .r-title { font-weight: 600; font-variant-numeric: tabular-nums; min-width: 8.5ch; }
+        .r-tools { display: flex; gap: .4rem; align-items: center; flex-wrap: wrap; }
+        .r-btn { min-width: 40px; height: 40px; padding: 0 .8rem; border-radius: 10px; border: 1px solid rgba(255,255,255,.25); background: rgba(255,255,255,.08); color: #fff; cursor: pointer; font: 600 .9rem var(--sans); display: inline-flex; align-items: center; justify-content: center; gap: .4rem; text-decoration: none; }
+        .r-btn:hover:not(:disabled) { background: rgba(255,255,255,.2); text-decoration: none; }
+        .r-btn:disabled { opacity: .35; cursor: default; }
+        .r-zoom { min-width: 4.2ch; text-align: center; color: #cfd8ea; font-variant-numeric: tabular-nums; }
+        .r-scroll { flex: 1; overflow: auto; padding: 0 3.6rem 2rem; -webkit-overflow-scrolling: touch; position: relative; }
+        .r-page { display: block; margin: 0 auto; background: #fff; box-shadow: 0 10px 40px rgba(0,0,0,.5); height: auto; max-width: none; }
+        .r-nav { position: fixed; top: 50%; transform: translateY(-50%); z-index: 2; width: 50px; height: 50px; border-radius: 50%; border: 1px solid rgba(255,255,255,.3); background: rgba(20,30,52,.85); color: #fff; font-size: 1.1rem; cursor: pointer; display: grid; place-items: center; }
+        .r-nav:hover:not(:disabled) { background: var(--accent); color: var(--accent-ink); }
+        .r-nav:disabled { opacity: .25; cursor: default; }
+        .r-nav.l { left: .6rem; } .r-nav.r { right: .6rem; }
+        @media (max-width: 560px) { .r-scroll { padding: 0 .4rem 1.5rem; } .r-nav { width: 42px; height: 42px; top: auto; bottom: 1rem; transform: none; } }
 
         .bottom { display: flex; align-items: center; gap: 1rem; flex-wrap: wrap; justify-content: center; color: var(--muted); font-size: .92rem; }
         .counter { font-weight: 600; color: var(--ink); min-width: 9.5ch; text-align: center; font-variant-numeric: tabular-nums; }
@@ -177,10 +204,11 @@
                 <button class="arrow" id="next" type="button" aria-label="Next page"><i class="fas fa-chevron-right" aria-hidden="true"></i></button>
             </div>
             <div class="bottom">
+                <button class="read-btn" id="read" type="button"><i class="fas fa-magnifying-glass-plus" aria-hidden="true"></i> Read larger</button>
                 <span class="counter" id="counter" aria-live="polite">Cover</span>
                 <div class="dots" id="dots" role="group" aria-label="Go to page"></div>
             </div>
-            <p class="hint">Click the right page to turn forward, the left page to turn back. Arrow keys also work.</p>
+            <p class="hint">Click the right page to turn forward, the left page to turn back. Press <b>Read larger</b> to zoom in on the text.</p>
             <noscript><p class="nojs">The page-turning book needs JavaScript. Please use the download buttons below.</p></noscript>
         </div>
 
@@ -194,6 +222,25 @@
             <p id="updated"></p>
         </div>
     </main>
+
+    <div class="reader" id="reader" role="dialog" aria-modal="true" aria-label="Reading view of the full CV">
+        <div class="r-bar">
+            <span class="r-title" id="r-title">Page 1 of 1</span>
+            <div class="r-tools">
+                <button class="r-btn" id="r-out" type="button" aria-label="Zoom out"><i class="fas fa-minus" aria-hidden="true"></i></button>
+                <span class="r-zoom" id="r-zoom">100%</span>
+                <button class="r-btn" id="r-in" type="button" aria-label="Zoom in"><i class="fas fa-plus" aria-hidden="true"></i></button>
+                <button class="r-btn" id="r-fit" type="button">Fit</button>
+                <a class="r-btn" href="assets/Degala_Chenchupradeep_CV_extended.pdf" download aria-label="Download the full CV as PDF"><i class="fas fa-download" aria-hidden="true"></i> PDF</a>
+                <button class="r-btn" id="r-close" type="button" aria-label="Close reading view"><i class="fas fa-xmark" aria-hidden="true"></i> Close</button>
+            </div>
+        </div>
+        <div class="r-scroll" id="r-scroll">
+            <img class="r-page" id="r-img" alt="">
+        </div>
+        <button class="r-nav l" id="r-prev" type="button" aria-label="Previous page"><i class="fas fa-chevron-left" aria-hidden="true"></i></button>
+        <button class="r-nav r" id="r-next" type="button" aria-label="Next page"><i class="fas fa-chevron-right" aria-hidden="true"></i></button>
+    </div>
 
     <footer>
         <div class="container foot">
@@ -215,9 +262,9 @@
         var nav = document.getElementById('nav'), menu = document.getElementById('menu');
         menu.addEventListener('click', function () { var o = nav.classList.toggle('open'); menu.setAttribute('aria-expanded', o); });
 
-        var book = document.getElementById('book'), prev = document.getElementById('prev'), next = document.getElementById('next'),
+        var reader = document.getElementById('reader'), book = document.getElementById('book'), prev = document.getElementById('prev'), next = document.getElementById('next'),
             counter = document.getElementById('counter'), dots = document.getElementById('dots'), viewport = document.getElementById('viewport');
-        var pages = [], single = false, leaves = [], t = 0, busy = false, RATIO = 841.89 / 595.28, DUR = 950;
+        var pages = [], hi = [], single = false, leaves = [], t = 0, busy = false, RATIO = 841.89 / 595.28, DUR = 950;
         var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
         function el(tag, cls) { var n = document.createElement(tag); if (cls) n.className = cls; return n; }
@@ -230,7 +277,8 @@
 
         function size() {
             var vw = window.innerWidth, vh = window.innerHeight;
-            var availH = Math.max(320, vh - 66 - 215), arrows = vw < 560 ? 90 : 150;
+            var fs = !!document.fullscreenElement;
+            var availH = Math.max(320, fs ? vh - 110 : vh - 66 - 215), arrows = vw < 560 ? 90 : 150;
             var availW = Math.min(1280, vw) - arrows;
             single = vw < 820;
             var ph = Math.min(availH, single ? availW * RATIO : (availW / 2) * RATIO);
@@ -336,6 +384,7 @@
         prev.addEventListener('click', back); next.addEventListener('click', forward);
         document.addEventListener('keydown', function (e) {
             var k = e.key;
+            if (reader.classList.contains('open')) return;
             if (e.target && /^(INPUT|TEXTAREA|SELECT)$/.test(e.target.tagName)) return;
             if (k === 'ArrowRight' || k === 'PageDown') { e.preventDefault(); forward(); }
             else if (k === 'ArrowLeft' || k === 'PageUp') { e.preventDefault(); back(); }
@@ -355,6 +404,61 @@
             else if (d.requestFullscreen) d.requestFullscreen();
         });
 
+        // ---- reading view
+        var rImg = document.getElementById('r-img'), rScroll = document.getElementById('r-scroll'),
+            rTitle = document.getElementById('r-title'), rZoom = document.getElementById('r-zoom'),
+            rPrev = document.getElementById('r-prev'), rNext = document.getElementById('r-next');
+        var rp = 0, zoom = 1, ZOOMS = [0.6, 0.8, 1, 1.25, 1.5, 2, 2.5, 3], opener = null;
+        function baseWidth() { return Math.min(window.innerWidth - (window.innerWidth < 560 ? 12 : 120), 1100); }
+        function paintReader() {
+            rImg.src = hi[rp] || pages[rp]; rImg.alt = 'CV page ' + (rp + 1);
+            rImg.style.width = Math.round(baseWidth() * zoom) + 'px';
+            rTitle.textContent = 'Page ' + (rp + 1) + ' of ' + pages.length;
+            rZoom.textContent = Math.round(zoom * 100) + '%';
+            rPrev.disabled = rp <= 0; rNext.disabled = rp >= pages.length - 1;
+            document.getElementById('r-out').disabled = zoom <= ZOOMS[0];
+            document.getElementById('r-in').disabled = zoom >= ZOOMS[ZOOMS.length - 1];
+        }
+        function openReader(i) {
+            rp = Math.max(0, Math.min(pages.length - 1, i)); opener = document.activeElement;
+            reader.classList.add('open'); document.body.style.overflow = 'hidden'; paintReader(); rScroll.scrollTop = 0;
+            document.getElementById('r-close').focus();
+        }
+        function closeReader() {
+            reader.classList.remove('open'); document.body.style.overflow = '';
+            // leave the book on the spread that holds the page that was being read
+            var want = single ? rp : Math.floor((rp + 1) / 2);
+            want = Math.min(want, maxT());
+            if (want !== t) goTo(want);
+            if (opener && opener.focus) opener.focus();
+        }
+        function rGo(d) { var n = rp + d; if (n < 0 || n >= pages.length) return; rp = n; paintReader(); rScroll.scrollTop = 0; }
+        function rZ(d) {
+            var i = ZOOMS.indexOf(zoom); if (i < 0) i = 2;
+            i = Math.max(0, Math.min(ZOOMS.length - 1, i + d)); zoom = ZOOMS[i];
+            var ratio = rScroll.scrollTop / Math.max(1, rScroll.scrollHeight);
+            paintReader(); rScroll.scrollTop = ratio * rScroll.scrollHeight;
+        }
+        document.getElementById('read').addEventListener('click', function () {
+            openReader(single ? t : (t === 0 ? 0 : 2 * t - 1));   // the left page of the open spread
+        });
+        document.getElementById('r-close').addEventListener('click', closeReader);
+        document.getElementById('r-in').addEventListener('click', function () { rZ(1); });
+        document.getElementById('r-out').addEventListener('click', function () { rZ(-1); });
+        document.getElementById('r-fit').addEventListener('click', function () { zoom = 1; paintReader(); });
+        rPrev.addEventListener('click', function () { rGo(-1); }); rNext.addEventListener('click', function () { rGo(1); });
+        document.addEventListener('keydown', function (e) {
+            if (!reader.classList.contains('open')) return;
+            var k = e.key;
+            if (k === 'Escape') { closeReader(); }
+            else if (k === 'ArrowRight') { e.preventDefault(); rGo(1); }
+            else if (k === 'ArrowLeft') { e.preventDefault(); rGo(-1); }
+            else if (k === '+' || k === '=') { e.preventDefault(); rZ(1); }
+            else if (k === '-' || k === '_') { e.preventDefault(); rZ(-1); }
+            else if (k === '0') { zoom = 1; paintReader(); }
+        });
+        window.addEventListener('resize', function () { if (reader.classList.contains('open')) paintReader(); });
+
         var timer = null;
         function relayout() {
             var was = single; size();
@@ -368,10 +472,11 @@
 
         fetch('assets/cv/pages.json', { cache: 'no-cache' }).then(function (r) { return r.json(); }).then(function (m) {
             pages = m.pages.map(function (p) { return 'assets/cv/' + p; });
+            hi = (m.large || m.pages).map(function (p) { return 'assets/cv/' + p; });
             if (m.updated) document.getElementById('updated').textContent = 'Last updated ' + m.updated + '. The book shows the same pages as the PDF.';
             size(); build(); buildDots(); paint();
-            // load the first spread eagerly, the rest while the reader looks at it
-            pages.forEach(function (src) { var i = new Image(); i.src = src; });
+            // the first two spreads load at once, the other pages when their leaf is built
+            pages.slice(0, 4).forEach(function (src) { var i = new Image(); i.src = src; });
         }).catch(function () {
             document.getElementById('sub').textContent = 'The book could not be loaded. Please use the download buttons below.';
         });
