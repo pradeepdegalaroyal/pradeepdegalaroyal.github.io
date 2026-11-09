@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Full CV | Degala Chenchupradeep</title>
+    <meta name="description" content="The full curriculum vitae of Degala Chenchupradeep, PhD scholar in quantum machine learning at SRM University AP. Read it page by page or download it as a PDF.">
+    <meta name="theme-color" content="#f7f8fb" media="(prefers-color-scheme: light)">
+    <meta name="theme-color" content="#0a1120" media="(prefers-color-scheme: dark)">
+    <link rel="canonical" href="https://pradeepdegalaroyal.github.io/cv.html">
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+    <style>
+        :root {
+            --bg: #f7f8fb; --surface: #ffffff; --surface-2: #eef1f7; --ink: #0f1b33; --muted: #566178; --line: #e1e6f0;
+            --accent: #2446c8; --accent-ink: #ffffff; --accent-soft: #e8edfc;
+            --shadow: 0 1px 2px rgba(15, 27, 51, .05), 0 8px 24px rgba(15, 27, 51, .06);
+            --serif: 'Source Serif 4', Georgia, 'Times New Roman', serif;
+            --sans: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+            --desk: #e3e8f2; --paper: #ffffff;
+            color-scheme: light;
+        }
+        @media (prefers-color-scheme: dark) {
+            :root:not([data-theme="light"]) {
+                --bg: #0a1120; --surface: #111a2e; --surface-2: #17223a; --ink: #e8edf7; --muted: #9aa6bd; --line: #223049;
+                --accent: #8fb0ff; --accent-ink: #0a1120; --accent-soft: #16233f; --desk: #0e172a;
+                --shadow: 0 1px 2px rgba(0,0,0,.4), 0 8px 24px rgba(0,0,0,.28);
+                color-scheme: dark;
+            }
+        }
+        :root[data-theme="dark"] {
+            --bg: #0a1120; --surface: #111a2e; --surface-2: #17223a; --ink: #e8edf7; --muted: #9aa6bd; --line: #223049;
+            --accent: #8fb0ff; --accent-ink: #0a1120; --accent-soft: #16233f; --desk: #0e172a;
+            --shadow: 0 1px 2px rgba(0,0,0,.4), 0 8px 24px rgba(0,0,0,.28);
+            color-scheme: dark;
+        }
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: var(--sans); background: var(--bg); color: var(--ink); line-height: 1.6; font-size: 16px; -webkit-font-smoothing: antialiased; min-height: 100vh; display: flex; flex-direction: column; }
+        a { color: var(--accent); text-decoration: none; }
+        a:hover { text-decoration: underline; }
+        ul { list-style: none; }
+        .container { max-width: 1120px; margin: 0 auto; padding: 0 1.5rem; }
+        .skip { position: absolute; left: -999px; top: 0; background: var(--accent); color: var(--accent-ink); padding: .6rem 1rem; z-index: 3000; border-radius: 0 0 8px 0; }
+        .skip:focus { left: 0; }
+        a:focus-visible, button:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; border-radius: 6px; }
+
+        header.site { position: fixed; top: 0; width: 100%; z-index: 1000; background: color-mix(in srgb, var(--bg) 86%, transparent); backdrop-filter: saturate(160%) blur(12px); -webkit-backdrop-filter: saturate(160%) blur(12px); border-bottom: 1px solid var(--line); }
+        .bar { display: flex; align-items: center; justify-content: space-between; height: 66px; gap: 1rem; }
+        .brand { display: flex; align-items: center; gap: .7rem; color: var(--ink); font-family: var(--serif); font-weight: 600; font-size: 1.1rem; }
+        .brand:hover { text-decoration: none; }
+        .mark { width: 34px; height: 34px; border-radius: 9px; background: var(--ink); color: var(--bg); display: grid; place-items: center; font-family: var(--serif); font-weight: 700; font-size: .95rem; letter-spacing: .02em; }
+        nav ul { display: flex; gap: .15rem; align-items: center; }
+        nav a { color: var(--muted); font-size: .92rem; font-weight: 500; padding: .45rem .75rem; border-radius: 8px; transition: color .2s, background .2s; display: block; }
+        nav a:hover { color: var(--ink); background: var(--surface-2); text-decoration: none; }
+        nav a.active { color: var(--accent); background: var(--accent-soft); }
+        .tools { display: flex; gap: .4rem; align-items: center; }
+        .icon-btn { width: 40px; height: 40px; border-radius: 10px; border: 1px solid var(--line); background: var(--surface); color: var(--ink); cursor: pointer; font-size: 1rem; display: grid; place-items: center; transition: background .2s, border-color .2s; }
+        .icon-btn:hover { border-color: var(--accent); }
+        .menu-toggle { display: none; }
+
+        main { flex: 1; padding-top: 66px; display: flex; flex-direction: column; }
+        .top { text-align: center; padding: 1rem 1rem .2rem; }
+        .eyebrow { display: inline-flex; align-items: center; gap: .5rem; font-size: .8rem; font-weight: 600; letter-spacing: .09em; text-transform: uppercase; color: var(--accent); margin-bottom: .4rem; }
+        h1 { font-family: var(--serif); font-size: clamp(1.7rem, 3.4vw, 2.4rem); line-height: 1.15; font-weight: 700; letter-spacing: -.01em; }
+        .sub { color: var(--muted); font-size: .98rem; margin-top: .35rem; }
+
+        .btn { display: inline-flex; align-items: center; gap: .55rem; padding: .65rem 1.2rem; border-radius: 10px; font-weight: 600; font-size: .92rem; border: 1px solid transparent; cursor: pointer; transition: transform .2s, background .2s, box-shadow .2s, border-color .2s, color .2s; font-family: inherit; }
+        .btn:hover { text-decoration: none; transform: translateY(-2px); }
+        .btn-primary { background: var(--accent); color: var(--accent-ink); box-shadow: 0 6px 18px color-mix(in srgb, var(--accent) 32%, transparent); }
+        .btn-outline { background: var(--surface); color: var(--ink); border-color: var(--line); }
+        .btn-outline:hover { border-color: var(--accent); color: var(--accent); }
+        .btn-row { display: flex; flex-wrap: wrap; gap: .6rem; justify-content: center; }
+
+        /* The desk and the book */
+        .desk { background: var(--desk); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); margin-top: 1rem; padding: 1.6rem 0 1.2rem; flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 1.1rem; position: relative; }
+        .stage { position: relative; display: flex; align-items: center; justify-content: center; gap: .9rem; width: 100%; max-width: 1280px; padding: 0 .8rem; }
+        .arrow { flex: none; width: 54px; height: 54px; border-radius: 50%; border: 1px solid var(--line); background: var(--surface); color: var(--ink); font-size: 1.15rem; cursor: pointer; display: grid; place-items: center; box-shadow: var(--shadow); transition: transform .2s, border-color .2s, color .2s, opacity .2s; }
+        .arrow:hover:not(:disabled) { border-color: var(--accent); color: var(--accent); transform: scale(1.07); }
+        .arrow:disabled { opacity: .3; cursor: default; box-shadow: none; }
+        .viewport { position: relative; perspective: 2600px; display: flex; justify-content: center; }
+        .book { position: relative; width: calc(var(--pw) * 2); height: var(--ph); transform-style: preserve-3d; transition: transform .9s cubic-bezier(.45, .05, .25, 1); }
+        .book.single { width: var(--pw); }
+        .book.at-start:not(.single) { transform: translateX(calc(var(--pw) / -2)); }
+        .book.at-end:not(.single) { transform: translateX(calc(var(--pw) / 2)); }
+        .book::before { content: ''; position: absolute; left: 0; right: 0; bottom: -14px; height: 22px; background: radial-gradient(ellipse at center, rgba(0,0,0,.28), transparent 70%); filter: blur(6px); transform: translateZ(-1px); pointer-events: none; }
+        .leaf { position: absolute; top: 0; left: 50%; width: 50%; height: 100%; transform-origin: left center; transform-style: preserve-3d; transition: transform .95s cubic-bezier(.45, .05, .25, 1); cursor: pointer; }
+        .book.single .leaf { left: 0; width: 100%; }
+        .leaf.flipped { transform: rotateY(-180deg); }
+        .face { position: absolute; inset: 0; backface-visibility: hidden; -webkit-backface-visibility: hidden; background: var(--paper); overflow: hidden; box-shadow: 0 0 0 1px rgba(15, 27, 51, .08); }
+        .face img { width: 100%; height: 100%; display: block; object-fit: fill; user-select: none; -webkit-user-drag: none; background: var(--paper); }
+        .face.front { border-radius: 2px 6px 6px 2px; }
+        .face.back { transform: rotateY(180deg); border-radius: 6px 2px 2px 6px; }
+        /* paper shading: spine shadow and a moving highlight while a leaf turns */
+        .face::after { content: ''; position: absolute; inset: 0; pointer-events: none; }
+        .face.front::after { background: linear-gradient(90deg, rgba(0,0,0,.20) 0%, rgba(0,0,0,.05) 5%, transparent 14%); }
+        .face.back::after { background: linear-gradient(270deg, rgba(0,0,0,.20) 0%, rgba(0,0,0,.05) 5%, transparent 14%); }
+        .leaf.turning .face::before { content: ''; position: absolute; inset: 0; z-index: 2; pointer-events: none; animation: shade .95s ease-in-out; }
+        @keyframes shade { 0% { background: rgba(0,0,0,0); } 50% { background: rgba(0,0,0,.22); } 100% { background: rgba(0,0,0,0); } }
+        .blank { background: var(--paper); width: 100%; height: 100%; }
+
+        .bottom { display: flex; align-items: center; gap: 1rem; flex-wrap: wrap; justify-content: center; color: var(--muted); font-size: .92rem; }
+        .counter { font-weight: 600; color: var(--ink); min-width: 9.5ch; text-align: center; font-variant-numeric: tabular-nums; }
+        .dots { display: flex; gap: .4rem; flex-wrap: wrap; justify-content: center; }
+        .dot { width: 10px; height: 10px; border-radius: 50%; border: 0; background: color-mix(in srgb, var(--ink) 22%, transparent); cursor: pointer; padding: 0; transition: background .2s, transform .2s; }
+        .dot:hover { transform: scale(1.3); }
+        .dot[aria-current="true"] { background: var(--accent); transform: scale(1.25); }
+        .hint { font-size: .85rem; color: var(--muted); }
+        .actions { padding: 1.2rem 1rem 2rem; }
+        .actions p { text-align: center; color: var(--muted); font-size: .9rem; margin-top: .8rem; }
+
+        noscript .nojs { padding: 2rem; text-align: center; }
+        footer { border-top: 1px solid var(--line); padding: 1.6rem 0; color: var(--muted); font-size: .9rem; }
+        .foot { display: flex; justify-content: space-between; gap: 1rem; flex-wrap: wrap; }
+
+        @media (max-width: 860px) {
+            .menu-toggle { display: grid; }
+            nav { position: absolute; top: 100%; left: 0; right: 0; background: var(--bg); border-bottom: 1px solid var(--line); display: none; padding: .6rem 1rem 1rem; }
+            nav.open { display: block; }
+            nav ul { flex-direction: column; align-items: stretch; }
+            nav a { padding: .7rem .8rem; font-size: 1rem; }
+            .arrow { width: 46px; height: 46px; }
+        }
+        @media (max-width: 560px) {
+            .container { padding: 0 1.1rem; }
+            .stage { gap: .3rem; padding: 0 .3rem; }
+            .arrow { width: 40px; height: 40px; font-size: 1rem; }
+            .brand span:last-child { display: none; }
+        }
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after { transition: none !important; animation: none !important; }
+        }
+    </style>
+</head>
+<body>
+    <a class="skip" href="#main">Skip to content</a>
+
+    <header class="site">
+        <div class="container bar">
+            <a class="brand" href="index.html#hero" aria-label="Degala Chenchupradeep, home">
+                <span class="mark">DC</span><span>Degala Chenchupradeep</span>
+            </a>
+            <nav id="nav" aria-label="Main">
+                <ul>
+                    <li><a href="index.html#research">Research</a></li>
+                    <li><a href="index.html#projects">Projects</a></li>
+                    <li><a href="index.html#experience">Experience</a></li>
+                    <li><a href="index.html#education">Education</a></li>
+                    <li><a href="index.html#skills">Skills</a></li>
+                    <li><a href="cv.html" class="active" aria-current="page">Full CV</a></li>
+                    <li><a href="index.html#contact">Contact</a></li>
+                </ul>
+            </nav>
+            <div class="tools">
+                <button class="icon-btn" id="theme" type="button" aria-label="Switch between light and dark theme"><i class="fas fa-moon" aria-hidden="true"></i></button>
+                <button class="icon-btn menu-toggle" id="menu" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="nav"><i class="fas fa-bars" aria-hidden="true"></i></button>
+            </div>
+        </div>
+    </header>
+
+    <main id="main">
+        <div class="top">
+            <p class="eyebrow">Curriculum vitae</p>
+            <h1>Full CV</h1>
+            <p class="sub" id="sub">Turn the pages with the arrows, the keyboard or a swipe.</p>
+        </div>
+
+        <div class="desk">
+            <div class="stage">
+                <button class="arrow" id="prev" type="button" aria-label="Previous page" disabled><i class="fas fa-chevron-left" aria-hidden="true"></i></button>
+                <div class="viewport" id="viewport">
+                    <div class="book at-start" id="book" aria-live="polite"></div>
+                </div>
+                <button class="arrow" id="next" type="button" aria-label="Next page"><i class="fas fa-chevron-right" aria-hidden="true"></i></button>
+            </div>
+            <div class="bottom">
+                <span class="counter" id="counter" aria-live="polite">Cover</span>
+                <div class="dots" id="dots" role="group" aria-label="Go to page"></div>
+            </div>
+            <p class="hint">Click the right page to turn forward, the left page to turn back. Arrow keys also work.</p>
+            <noscript><p class="nojs">The page-turning book needs JavaScript. Please use the download buttons below.</p></noscript>
+        </div>
+
+        <div class="actions">
+            <div class="btn-row">
+                <a class="btn btn-primary" id="dl-full" href="assets/Degala_Chenchupradeep_CV_extended.pdf" download><i class="fas fa-download" aria-hidden="true"></i> Download full CV (PDF)</a>
+                <a class="btn btn-outline" id="dl-one" href="assets/Degala_Chenchupradeep_CV_onepage.pdf" download><i class="fas fa-file-pdf" aria-hidden="true"></i> Download one-page CV (PDF)</a>
+                <a class="btn btn-outline" href="assets/Degala_Chenchupradeep_CV_extended.pdf" target="_blank" rel="noopener"><i class="fas fa-up-right-from-square" aria-hidden="true"></i> Open PDF in a new tab</a>
+                <button class="btn btn-outline" id="full" type="button"><i class="fas fa-expand" aria-hidden="true"></i> Full screen</button>
+            </div>
+            <p id="updated"></p>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container foot">
+            <span>&copy; 2026 Degala Chenchupradeep. All rights reserved.</span>
+            <a href="index.html">Back to the home page</a>
+        </div>
+    </footer>
+
+    <script>
+    (function () {
+        var root = document.documentElement;
+        function store(k, v) { try { if (v === undefined) return localStorage.getItem(k); localStorage.setItem(k, v); } catch (e) { return null; } }
+        var themeBtn = document.getElementById('theme');
+        function isDark() { var t = root.getAttribute('data-theme'); return t ? t === 'dark' : window.matchMedia('(prefers-color-scheme: dark)').matches; }
+        function paintTheme() { themeBtn.firstElementChild.className = isDark() ? 'fas fa-sun' : 'fas fa-moon'; }
+        var saved = store('theme'); if (saved) root.setAttribute('data-theme', saved);
+        paintTheme();
+        themeBtn.addEventListener('click', function () { var n = isDark() ? 'light' : 'dark'; root.setAttribute('data-theme', n); store('theme', n); paintTheme(); });
+        var nav = document.getElementById('nav'), menu = document.getElementById('menu');
+        menu.addEventListener('click', function () { var o = nav.classList.toggle('open'); menu.setAttribute('aria-expanded', o); });
+
+        var book = document.getElementById('book'), prev = document.getElementById('prev'), next = document.getElementById('next'),
+            counter = document.getElementById('counter'), dots = document.getElementById('dots'), viewport = document.getElementById('viewport');
+        var pages = [], single = false, leaves = [], t = 0, busy = false, RATIO = 841.89 / 595.28, DUR = 950;
+        var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+        function el(tag, cls) { var n = document.createElement(tag); if (cls) n.className = cls; return n; }
+        function face(side, src, label) {
+            var f = el('div', 'face ' + side);
+            if (src) { var im = el('img'); im.src = src; im.alt = label; im.draggable = false; im.decoding = 'async'; f.appendChild(im); }
+            else { f.appendChild(el('div', 'blank')); }
+            return f;
+        }
+
+        function size() {
+            var vw = window.innerWidth, vh = window.innerHeight;
+            var availH = Math.max(320, vh - 66 - 215), arrows = vw < 560 ? 90 : 150;
+            var availW = Math.min(1280, vw) - arrows;
+            single = vw < 820;
+            var ph = Math.min(availH, single ? availW * RATIO : (availW / 2) * RATIO);
+            ph = Math.max(280, ph);
+            var pw = ph / RATIO;
+            if (single) pw = Math.min(pw, availW), ph = pw * RATIO;
+            book.style.setProperty('--pw', pw + 'px'); book.style.setProperty('--ph', ph + 'px');
+            return single;
+        }
+
+        // Spread mode: leaf k has page 2k+1 on its front and page 2k+2 on its back.
+        // Single mode: leaf k has page k+1 on its front; turning it reveals the next page underneath.
+        function build() {
+            var n = pages.length; book.textContent = ''; leaves = [];
+            book.classList.toggle('single', single);
+            var L = single ? n : Math.ceil(n / 2);   // the last leaf of an odd book has a blank back
+            for (var k = 0; k < L; k++) {
+                var leaf = el('div', 'leaf');
+                var fi = single ? k : 2 * k, bi = single ? -1 : 2 * k + 1;
+                leaf.appendChild(face('front', pages[fi], 'CV page ' + (fi + 1)));
+                if (!single) leaf.appendChild(face('back', bi < n ? pages[bi] : null, bi < n ? 'CV page ' + (bi + 1) : ''));
+                else leaf.appendChild(face('back', null, ''));
+                (function (idx) { leaf.addEventListener('click', function (e) {
+                    var r = leaf.getBoundingClientRect();
+                    if (single) { (e.clientX < r.left + r.width / 2 ? back : forward)(); }
+                    else if (leaf.classList.contains('flipped')) back(); else forward();
+                }); })(k);
+                book.appendChild(leaf); leaves.push(leaf);
+            }
+            // keep the turned pages in their final stack order
+            t = Math.min(t, maxT()); leaves.forEach(function (lf, k) { lf.classList.toggle('flipped', k < t); });
+            stack(); paint();
+        }
+
+        function stack() {
+            var L = leaves.length;
+            leaves.forEach(function (lf, k) {
+                lf.style.zIndex = k < t ? k + 1 : L - k;
+                lf.style.visibility = single && k < t ? 'hidden' : '';
+            });
+        }
+
+        function label() {
+            var n = pages.length;
+            if (single) return 'Page ' + (t + 1) + ' of ' + n;
+            if (t === 0) return 'Cover';
+            var l = 2 * t, r = 2 * t + 1;
+            if (r > n) return 'Page ' + l + ' of ' + n;
+            return 'Pages ' + l + '–' + r + ' of ' + n;
+        }
+
+        function maxT() {
+            var n = pages.length;
+            if (single) return Math.max(0, n - 1);
+            return n % 2 === 0 ? n / 2 : (n - 1) / 2;   // with an odd count the last spread ends on the last page
+        }
+
+        function paint() {
+            var L = maxT(), n = pages.length;
+            counter.textContent = label();
+            prev.disabled = t <= 0; next.disabled = t >= L;
+            book.classList.toggle('at-start', !single && t === 0);
+            book.classList.toggle('at-end', !single && t === L && n % 2 === 0 && L > 0);
+            [].forEach.call(dots.children, function (d, i) { d.setAttribute('aria-current', i === t ? 'true' : 'false'); });
+        }
+
+        function turn(dir) {
+            if (busy) return;
+            var L = maxT(), to = t + dir;
+            if (to < 0 || to > L) return;
+            busy = true;
+            var lf = leaves[dir > 0 ? t : t - 1];
+            if (!lf) { busy = false; return; }
+            lf.style.visibility = '';
+            lf.style.zIndex = leaves.length + 2;
+            lf.classList.add('turning');
+            // force a frame so a hidden leaf can animate back in
+            void lf.offsetWidth;
+            lf.classList.toggle('flipped', dir > 0);
+            t = to; paint();
+            window.setTimeout(function () { lf.classList.remove('turning'); stack(); busy = false; }, reduce ? 0 : DUR);
+        }
+        function forward() { turn(1); }
+        function back() { turn(-1); }
+        function goTo(target) {
+            var step = function () { if (t === target || busy) { if (t !== target) window.setTimeout(step, 60); return; } turn(target > t ? 1 : -1); window.setTimeout(step, reduce ? 0 : 230); };
+            step();
+        }
+
+        function buildDots() {
+            dots.textContent = '';
+            var L = maxT();
+            for (var i = 0; i <= L; i++) {
+                (function (i) {
+                    var d = el('button', 'dot'); d.type = 'button';
+                    d.setAttribute('aria-label', single ? 'Page ' + (i + 1) : (i === 0 ? 'Cover' : 'Pages ' + (2 * i) + ' and ' + (2 * i + 1)));
+                    d.addEventListener('click', function () { goTo(i); });
+                    dots.appendChild(d);
+                })(i);
+            }
+        }
+
+        prev.addEventListener('click', back); next.addEventListener('click', forward);
+        document.addEventListener('keydown', function (e) {
+            var k = e.key;
+            if (e.target && /^(INPUT|TEXTAREA|SELECT)$/.test(e.target.tagName)) return;
+            if (k === 'ArrowRight' || k === 'PageDown') { e.preventDefault(); forward(); }
+            else if (k === 'ArrowLeft' || k === 'PageUp') { e.preventDefault(); back(); }
+            else if (k === 'Home') { e.preventDefault(); goTo(0); }
+            else if (k === 'End') { e.preventDefault(); goTo(maxT()); }
+        });
+        var sx = null;
+        viewport.addEventListener('touchstart', function (e) { sx = e.touches[0].clientX; }, { passive: true });
+        viewport.addEventListener('touchend', function (e) {
+            if (sx === null) return; var dx = e.changedTouches[0].clientX - sx; sx = null;
+            if (Math.abs(dx) > 40) { if (dx < 0) forward(); else back(); }
+        }, { passive: true });
+
+        document.getElementById('full').addEventListener('click', function () {
+            var d = document.querySelector('.desk');
+            if (document.fullscreenElement) document.exitFullscreen();
+            else if (d.requestFullscreen) d.requestFullscreen();
+        });
+
+        var timer = null;
+        function relayout() {
+            var was = single; size();
+            if (single !== was && pages.length) {
+                // switching between one page and two pages keeps the reader near the same place
+                t = single ? Math.min(pages.length - 1, t === 0 ? 0 : 2 * t - 1) : Math.floor((t + 1) / 2);
+                build(); buildDots(); paint();
+            }
+        }
+        window.addEventListener('resize', function () { window.clearTimeout(timer); timer = window.setTimeout(relayout, 120); });
+
+        fetch('assets/cv/pages.json', { cache: 'no-cache' }).then(function (r) { return r.json(); }).then(function (m) {
+            pages = m.pages.map(function (p) { return 'assets/cv/' + p; });
+            if (m.updated) document.getElementById('updated').textContent = 'Last updated ' + m.updated + '. The book shows the same pages as the PDF.';
+            size(); build(); buildDots(); paint();
+            // load the first spread eagerly, the rest while the reader looks at it
+            pages.forEach(function (src) { var i = new Image(); i.src = src; });
+        }).catch(function () {
+            document.getElementById('sub').textContent = 'The book could not be loaded. Please use the download buttons below.';
+        });
+    })();
+    </script>
+</body>
+</html>
