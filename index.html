@@ -299,6 +299,15 @@
             .reveal { opacity: 1; transform: none; }
             #hero { padding-top: 2rem; }
         }
+        /* papers */
+        .papers { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(460px, 100%), 1fr)); gap: 1.3rem; }
+        .paper .meta { display: flex; flex-wrap: wrap; gap: .5rem; align-items: center; margin-bottom: .7rem; }
+        .paper .badge-s { font-size: .72rem; font-weight: 600; letter-spacing: .04em; border-radius: 999px; padding: .15rem .65rem; background: var(--surface-2); color: var(--muted); border: 1px solid var(--line); }
+        .paper .badge-s.pub { color: var(--accent); border-color: color-mix(in srgb, var(--accent) 45%, var(--line)); }
+        .paper h3 { font-size: 1.12rem; line-height: 1.4; }
+        .paper .by { color: var(--muted); font-size: .92rem; margin-bottom: 1.1rem; }
+        .paper .actions { display: flex; flex-wrap: wrap; gap: .6rem; margin-top: auto; }
+        .paper .actions .btn { padding: .5rem 1rem; font-size: .88rem; }
     </style>
 </head>
 <body>
@@ -313,6 +322,7 @@
             <nav id="nav" aria-label="Main">
                 <ul>
                     <li><a href="#research">Research</a></li>
+                    <li><a href="#papers">Papers</a></li>
                     <li><a href="#projects">Projects</a></li>
                     <li><a href="#experience">Experience</a></li>
                     <li><a href="#education">Education</a></li>
@@ -388,6 +398,55 @@
                 </div>
             </div>
         </section>
+
+        <!-- Papers -->
+        <!-- papers:start -->
+        <section id="papers" aria-labelledby="h-papers">
+            <div class="container">
+                <div class="sec-head reveal">
+                    <p class="eyebrow">Publications</p>
+                    <h2 id="h-papers">Research papers</h2>
+                    <p>Peer-reviewed journal articles. Open each one through its DOI.</p>
+                </div>
+                <div class="papers">
+                    <article class="card paper reveal" itemscope itemtype="https://schema.org/ScholarlyArticle">
+                        <div class="meta"><span class="area" style="margin:0">Quantum information theory</span>
+                            <span class="badge-s">Early access</span><span class="badge-s">2026</span></div>
+                        <h3 itemprop="name">Common-Randomness-Aware One-Shot Multiple Access Channel Simulation via Smooth Max-Wyner Common Information</h3>
+                        <p class="by">Sole author &middot; <em>IEEE Access</em></p>
+                        <div class="actions">
+                            <a class="btn btn-primary" href="https://doi.org/10.1109/ACCESS.2026.3753769" target="_blank" rel="noopener" itemprop="sameAs"><i class="fas fa-external-link-alt" aria-hidden="true"></i> Read the paper</a>
+                            <button class="btn btn-outline" type="button" data-cite="D. Chenchupradeep, &quot;Common-Randomness-Aware One-Shot Multiple Access Channel Simulation via Smooth Max-Wyner Common Information,&quot; IEEE Access, 2026 (early access). https://doi.org/10.1109/ACCESS.2026.3753769"><i class="fas fa-quote-right" aria-hidden="true"></i> Copy citation</button>
+                        </div>
+                        <p class="by" style="margin:.9rem 0 0;font-size:.8rem">DOI: <a href="https://doi.org/10.1109/ACCESS.2026.3753769" target="_blank" rel="noopener">10.1109/ACCESS.2026.3753769</a></p>
+                    </article>
+                    <article class="card paper reveal" itemscope itemtype="https://schema.org/ScholarlyArticle">
+                        <div class="meta"><span class="area" style="margin:0">Quantum machine learning</span>
+                            <span class="badge-s pub">Published</span><span class="badge-s">2026</span></div>
+                        <h3 itemprop="name">Quantum Recurrent Attention for Causal Electric-Vehicle Battery State-of-Health Prognosis: A Parameter-Matched, Hardware-Aware Evaluation</h3>
+                        <p class="by">Sole author &middot; <em>IEEE Open Journal of Vehicular Technology</em> &middot; vol. 7, pp. 3133-3144</p>
+                        <div class="actions">
+                            <a class="btn btn-primary" href="https://doi.org/10.1109/OJVT.2026.3749325" target="_blank" rel="noopener" itemprop="sameAs"><i class="fas fa-external-link-alt" aria-hidden="true"></i> Read the paper</a>
+                            <button class="btn btn-outline" type="button" data-cite="D. Chenchupradeep, &quot;Quantum Recurrent Attention for Causal Electric-Vehicle Battery State-of-Health Prognosis: A Parameter-Matched, Hardware-Aware Evaluation,&quot; IEEE Open Journal of Vehicular Technology, vol. 7, pp. 3133-3144, 2026. https://doi.org/10.1109/OJVT.2026.3749325"><i class="fas fa-quote-right" aria-hidden="true"></i> Copy citation</button>
+                        </div>
+                        <p class="by" style="margin:.9rem 0 0;font-size:.8rem">DOI: <a href="https://doi.org/10.1109/OJVT.2026.3749325" target="_blank" rel="noopener">10.1109/OJVT.2026.3749325</a></p>
+                    </article>
+                </div>
+            </div>
+        <script>
+        (function () {
+            document.querySelectorAll('#papers [data-cite]').forEach(function (b) {
+                b.addEventListener('click', function () {
+                    var t = b.getAttribute('data-cite'), label = b.innerHTML;
+                    function done() { b.innerHTML = '<i class="fas fa-check" aria-hidden="true"></i> Copied'; setTimeout(function () { b.innerHTML = label; }, 1600); }
+                    if (navigator.clipboard && window.isSecureContext) { navigator.clipboard.writeText(t).then(done); }
+                    else { var x = document.createElement('textarea'); x.value = t; document.body.appendChild(x); x.select(); try { document.execCommand('copy'); done(); } catch (err) {} document.body.removeChild(x); }
+                });
+            });
+        })();
+        </script>
+        </section>
+        <!-- papers:end -->
 
         <!-- Projects (data-driven from projects.json) -->
         <section id="projects" aria-labelledby="h-projects">
